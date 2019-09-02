@@ -65,17 +65,20 @@ def cli_handle_add_file(file_name):
         output_file = handler_file[2]
         tmp_output_file = "~/tmp/"+output_file
         transaction_files.append((tmp_output_file, output_file))
-        rc = os.system(f"{handler.get_path()} {input_file} {tmp_output_file}")
+        rc = 0
+        cmd_line = f"handler_cmd_line {input_file} {tmp_output_file}"
+        print("cmd_line ",cmd_line)
+        #rc = os.system(f"{handler.get_path()} {input_file} {tmp_output_file}")
         if rc < 0:
             clean_tmp_files()
             log_transaction_error()
             mark_file_like_bad()
 
     #apply transaction if all ok
-    for step in transaction_files:
-        tmp_output_file = step[0]
-        output_file = step[1]
-        os.system(f"mv {tmp_output_file} {output_file}")
+    #for step in transaction_files:
+    #    tmp_output_file = step[0]
+    #    output_file = step[1]
+    #    os.system(f"mv {tmp_output_file} {output_file}")
 
 
 
@@ -84,15 +87,20 @@ def cli_handle_add_file(file_name):
 
 def cli():
     while True:
-        cli_input = raw_input()
-        [command, file_name] = cli_input.split(' ')
-        
+        try:
+            cli_input = input()
+            [command, file_name] = cli_input.split(' ')
+            
 
-        if command == "add":
-            print(command," -> ", file_name)
-            print("---- start adding file ----")
-            cli_handle_add_file(file_name)
-        else:
-            print("unknown command")
+            if command == "add":
+                print(command," -> ", file_name)
+                print("---- start adding file ----")
+                cli_handle_add_file(file_name)
+            else:
+                print("unknown command")
+        except Exception as ex:
+            print("exception ", ex)
+            break
+
 
 cli()
