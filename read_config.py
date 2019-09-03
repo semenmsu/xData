@@ -37,9 +37,10 @@ def read_config():
         for line in f:
             values = line.split(' ')
             values = [value.strip() for value in values]
-            [handler, input_file_pattern, output_file_pattern] = values
-            handlers.append(HandlerPattern(
-                handler, input_file_pattern, output_file_pattern))
+            if len(values) > 2:
+                [handler, input_file_pattern, output_file_pattern] = values
+                handlers.append(HandlerPattern(
+                    handler, input_file_pattern, output_file_pattern))
     pass
 
 
