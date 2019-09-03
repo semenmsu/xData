@@ -82,6 +82,8 @@ dd = {}
 dd[r"^fast.(.+).raw.7z$"] = dirs["SX_ARCHIVE_DIR"]
 dd[r"(.+).extr$"] = dirs["SX_EXTRACTED_PATH"]
 dd[r"(.+).def.raw.(.+)"] = dirs["SX_RAW_DIR"]
+dd[r"(.+).trades.raw.(.+)"] = dirs["SX_RAW_DIR"]
+dd[r"(.+).stat.raw.(.+)"] = dirs["SX_RAW_DIR"]
 
 
 def get_full_file_name(date, file_name):
