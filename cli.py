@@ -204,7 +204,7 @@ def handle_input(command, date, file_name):
 parser = argparse.ArgumentParser(
     description='add file to pipeline and handle it')
 parser.add_argument("command", help='command [add, check]')
-parser.add_argument("date", "trading date")
-parser.add_argument("file_name", "file name to pipeline")
+parser.add_argument("date", help="trading date")
+parser.add_argument("file_name", help="file name to pipeline")
 args = parser.parse_args()
 handle_input(args.command, args.date, args.file_name)
