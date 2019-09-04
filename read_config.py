@@ -84,6 +84,9 @@ dd[r"(.+).extr$"] = dirs["SX_EXTRACTED_PATH"]
 dd[r"(.+).def.raw.(.+)"] = dirs["SX_RAW_DIR"]
 dd[r"(.+).trades.raw.(.+)"] = dirs["SX_RAW_DIR"]
 dd[r"(.+).stat.raw.(.+)"] = dirs["SX_RAW_DIR"]
+dd[r"(.+).def.clean.(.+)"] = dirs["SX_CLEAN_DIR"]
+dd[r"(.+).trades.clean.(.+)"] = dirs["SX_CLEAN_DIR"]
+dd[r"(.+).stat.clean.(.+)"] = dirs["SX_CLEAN_DIR"]
 
 
 def get_full_file_name(date, file_name):
